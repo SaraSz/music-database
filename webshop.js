@@ -11,7 +11,7 @@ let sortByAlbumBtn = document.getElementById("sortByAlbum");
 let sortByGenreBtn = document.getElementById("sortByGenre");
 let sortByYearBtn = document.getElementById("sortByYear");                           
 let totalProducts = 0;
-                        
+ /**/                       
                            
 /*Event listeners*/ 
 getAndWrite();                           
