@@ -9,7 +9,8 @@ let addBtn = document.getElementById("add");
 let sortByArtistBtn = document.getElementById("sortByArtist");
 let sortByAlbumBtn = document.getElementById("sortByAlbum");
 let sortByGenreBtn = document.getElementById("sortByGenre");
-let sortByYearBtn = document.getElementById("sortByYear");                           
+let sortByYearBtn = document.getElementById("sortByYear"); 
+let selector = document.getElementById("selector");
 let totalProducts = 0;
  /**/                       
                            
@@ -35,6 +36,10 @@ sortByGenreBtn.addEventListener("click", function(event){
                            
 sortByYearBtn.addEventListener("click", function(event){
    sortByYear(); 
+});
+                           
+selector.addEventListener("click", function(event){
+    selectOption();
 });
                            
                            
@@ -120,5 +125,38 @@ function addToTable(data){
         })
     })
     console.log("Årssortering genomförd.")    
- }                           
+ }
+function selectOption(){
+    console.log("Kör funktionen selectOption");
+    if(selector === 10){
+    let quantity = Number(selector.value);
+    table.innerHTML = "";
+    console.log("Tömt tabellen.");
+    firebase.database().ref("products/").orderByValue("id").limitToFirst(10);
+    console.log("Visar de första 10");
+    } 
 }
+                           /*inputAntalResultat.addEventListener('keypress', function(event) {
+
+                if( event.keyCode == 13 ) {
+
+                    let antal = Number(inputAntalResultat.value);
+
+                    tableVisaDjur.innerHTML = '';
+
+                    console.log('inputAntalResultat: antal=' + antal);
+
+                    if( isNaN(antal) ) {
+
+                        // varna användaren
+
+                    } else {
+
+                        firebase.database().ref('djur/').limitToFirst(antal)
+
+                        .once('value', function(snapshot) {
+
+                                snapshot.forEach( animalRef => {
+
+                                    addAnimalToTable(animalRef.val());*/
+                          }
