@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Fascinate+Inline');
+
+body {
+    display: block;
+    width: 970px;
+    margin: 0 auto;    
+    
+}
+
+h2 {
+    font-family: "Fascinate Inline";
+    font-size: 40px;
+    text-align: center;
+}
+
+#orange {
+    background-color: #e36414;
+    
+}
+
+input[type=text] {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    display: inline-table;
+    border-collapse: collapse;
+   
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+    margin-bottom: 25px;
+   
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+    height: 40px;
+    background-color: #e36414;
+    font-size: 18px;
+}
+
+button {
+   border: none;
+   background: #000000;
+   padding: 5px 16px;
+   color: white;
+   font-size: 17px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+button:hover {
+   border-top-color: #e36414;
+   background: #e36414;
+   color: black;
+   }
+button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+select {
+   background: black;
+   font-size: 14px;
+   color: white;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+}
+

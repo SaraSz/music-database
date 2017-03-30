@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inlämning 4</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="webshop.css">
+    <script src="webshop.js"></script>
+    
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBuMmJk9dQ8ELo_43LD1fgnyOq5HtRIwvg",
+    authDomain: "webshop-7b262.firebaseapp.com",
+    databaseURL: "https://webshop-7b262.firebaseio.com",
+    storageBucket: "webshop-7b262.appspot.com",
+    messagingSenderId: "1094560267127"
+  };
+  firebase.initializeApp(config);
+</script>
+    
+</head>
+
+<body>
+
+<div id="orange">    
+<h2>Music database</h2>
+    </div>
+    
+    <input type ="text" id="addArtist" placeholder="Artist">
+    <input type="text" id="addAlbum" placeholder="Album">
+    <input type="text" id="addGenre" placeholder="Genre">
+    <input type="text" id="addYear" placeholder="Year">
+    <button id="add">Add</button><br><br>
+    
+    <button id="sortByArtist">Sort by artist</button>&nbsp;
+    <button id="sortByAlbum">Sort by album</button>&nbsp;
+    <button id="sortByGenre">Sort by genre</button>&nbsp;
+    <button id="sortByYear">Sort by year</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+    <select>
+    <option value="" disabled selected>Select how many results to show</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+</select> 
+    
+    <!--<button id="showFirst">Show first 3</button>
+    <button id="showLast">Show last 3</button>-->
+
+    
+    <br><br>
+    
+    <table id ="tabell">
+    <thead class="thead-default">
+    <tr>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>Genre</th>
+        <th>Year</th>
+    </tr>
+        </thead>
+      <tbody id="table">
+    
+  </tbody>
+    </table>
+    
+    
+    
+
+    
+    </body></html>
