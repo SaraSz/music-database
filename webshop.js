@@ -9,8 +9,10 @@ let addBtn = document.getElementById("add");
 let sortByArtistBtn = document.getElementById("sortByArtist");
 let sortByAlbumBtn = document.getElementById("sortByAlbum");
 let sortByGenreBtn = document.getElementById("sortByGenre");
-let sortByYearBtn = document.getElementById("sortByYear"); 
-let selector = document.getElementById("selector");
+let sortByYearBtn = document.getElementById("sortByYear");
+let howMany = document.getElementById("select");
+let firstBtn = document.getElementById("firstBtn");
+let lastBtn = document.getElementById("lastBtn");
 let totalProducts = 0;
  /**/                       
                            
@@ -37,11 +39,11 @@ sortByGenreBtn.addEventListener("click", function(event){
 sortByYearBtn.addEventListener("click", function(event){
    sortByYear(); 
 });
-                           
-selector.addEventListener("click", function(event){
-    selectOption();
-});
-                           
+    
+firstBtn.addEventListener("click", function(event){
+    limitToFirst();
+    howMany.value = "";
+});        
                            
 /*Functions*/ 
   
@@ -94,7 +96,7 @@ function addToTable(data){
 	addToTable(productRef.val());  
         })
     })
-    console.log("Artistsortering genomförd.")   
+    console.log("Artistsortering genomförd.");   
  }   
                            
  function sortByAlbum() {
@@ -104,7 +106,7 @@ function addToTable(data){
 	addToTable(productRef.val());  
         })
     })
-    console.log("Albumsortering genomförd.")    
+    console.log("Albumsortering genomförd.");    
  }
    
  function sortByGenre() {
@@ -114,7 +116,7 @@ function addToTable(data){
 	addToTable(productRef.val());  
         })
     })
-    console.log("Genresortering genomförd.")    
+    console.log("Genresortering genomförd.");    
  } 
                            
  function sortByYear() {
@@ -124,39 +126,31 @@ function addToTable(data){
 	addToTable(productRef.val());  
         })
     })
-    console.log("Årssortering genomförd.")    
+    console.log("Årssortering genomförd.");    
  }
-function selectOption(){
-    console.log("Kör funktionen selectOption");
-    if(selector === 10){
-    let quantity = Number(selector.value);
+                           
+                           
+function limitToFirst(){
     table.innerHTML = "";
-    console.log("Tömt tabellen.");
-    firebase.database().ref("products/").orderByValue("id").limitToFirst(10);
-    console.log("Visar de första 10");
-    } 
+    let quantity = Number(howMany.value);
+    console.log("visar första");
+    
+    if(howMany.value != ""){
+        firebase.database().ref("products/").orderByChild("artist").limitToFirst(quantity)
+        .once("value", function(snapshot){
+            snapshot.forEach(productRef => {
+                addToTable(productRef.val());
+                
+            })
+        })
+       
+    }
+     
 }
-                           /*inputAntalResultat.addEventListener('keypress', function(event) {
+                        
 
-                if( event.keyCode == 13 ) {
 
-                    let antal = Number(inputAntalResultat.value);
+    }
 
-                    tableVisaDjur.innerHTML = '';
-
-                    console.log('inputAntalResultat: antal=' + antal);
-
-                    if( isNaN(antal) ) {
-
-                        // varna användaren
-
-                    } else {
-
-                        firebase.database().ref('djur/').limitToFirst(antal)
-
-                        .once('value', function(snapshot) {
-
-                                snapshot.forEach( animalRef => {
-
-                                    addAnimalToTable(animalRef.val());*/
-                          }
+ 
+}
