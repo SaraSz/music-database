@@ -43,7 +43,12 @@ sortByYearBtn.addEventListener("click", function(event){
 firstBtn.addEventListener("click", function(event){
     limitToFirst();
     howMany.value = "";
-});        
+}); 
+                           
+lastBtn.addEventListener("click", function(event){
+   limitToLast();
+    howMany.value = "";
+});
                            
 /*Functions*/ 
   
@@ -136,7 +141,23 @@ function limitToFirst(){
     console.log("visar första");
     
     if(howMany.value != ""){
-        firebase.database().ref("products/").orderByChild("artist").limitToFirst(quantity)
+        firebase.database().ref("products/").limitToFirst(quantity)
+        .once("value", function(snapshot){
+            snapshot.forEach(productRef => {
+                addToTable(productRef.val());
+                
+            })
+        })      
+    }     
+}
+                           
+function limitToLast(){
+    table.innerHTML = "";
+    let quantity = Number(howMany.value);
+    console.log("visar sissta");
+    
+    if(howMany.value != ""){
+        firebase.database().ref("products/").limitToLast(quantity)
         .once("value", function(snapshot){
             snapshot.forEach(productRef => {
                 addToTable(productRef.val());
