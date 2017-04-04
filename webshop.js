@@ -138,7 +138,6 @@ function addToTable(data){
 function limitToFirst(){
     table.innerHTML = "";
     let quantity = Number(howMany.value);
-    console.log("visar första");
     
     if(howMany.value != ""){
         firebase.database().ref("products/").limitToFirst(quantity)
@@ -149,12 +148,12 @@ function limitToFirst(){
             })
         })      
     }     
+    console.log("Limiterad till de " + quantity + " första sökträffarna.");
 }
                            
 function limitToLast(){
     table.innerHTML = "";
     let quantity = Number(howMany.value);
-    console.log("visar sissta");
     
     if(howMany.value != ""){
         firebase.database().ref("products/").limitToLast(quantity)
@@ -166,6 +165,7 @@ function limitToLast(){
         })
        
     }
+    console.log("Limiterad till de " + quantity + " sista sökträffarna.");
      
 }
                         
